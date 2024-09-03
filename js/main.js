@@ -1,65 +1,78 @@
-let producto;
-let nombreProducto;
+let opcion;
 let cantCuotas;
 let seguirComprando=true;
-let precio=0;
-let precioFinal=precio;
+let precioFinal=0;
 let planPago;
 let productoValido=true;
 let opcionValida=true;
 let seguirComprandoString;
 
+class Producto{
+    constructor(nombre, precio) {
+            this.nombre = nombre;
+            this.precio = precio;
+    }
+}
+
+let carrito=[];
+
 function elegirProducto(){
     do{
-        producto = prompt(`Selecciona un producto: 
+        opcion = prompt(`Selecciona un producto: 
             1. Iphone 15 Pro  
             2. Iphone 15
             3. Iphone 14
             4. Smartwatch
             5. Samsung Galaxy S24
             6. Cancelar compra`);
-            switch(producto) {
+            switch(opcion) {
                     case "1":
-                        nombreProducto="Iphone 15 Pro";
-                        precio=1200;
-                        precioFinal +=precio;
+                        const producto1=new Producto("Iphone 15 Pro",1200)
+                        carrito.push(producto1);
+                        precioFinal +=producto1.precio;
                         productoValido=true;
-                        console.log(`Agregaste ${nombreProducto} al carrito. Precio U$S ${precio}`)
+                        alert(`Agregaste ${producto1.nombre} al carrito. Precio U$S ${producto1.precio}`);
+                        /*console.log(`Agregaste ${producto1.nombre} al carrito. Precio U$S ${producto1.precio}`)*/
                         break;
                     case "2":
-                        nombreProducto="Iphone 15";
-                        precio=1000;
-                        precioFinal +=precio;
+                        const producto2=new Producto("Iphone 15",1000)
+                        carrito.push(producto2);
+                        precioFinal +=producto2.precio;
                         productoValido=true;
-                        console.log(`Agregaste ${nombreProducto} al carrito. Precio U$S ${precio}`)
+                        alert(`Agregaste ${producto2.nombre} al carrito. Precio U$S ${producto2.precio}`);
+                        /*console.log(`Agregaste ${producto2.nombre} al carrito. Precio U$S ${producto2.precio}`)*/
                         break;
                     case "3":
-                        nombreProducto="Iphone 14";
-                        precio=800;
-                        precioFinal +=precio;
+                        const producto3=new Producto("Iphone 14", 800)
+                        carrito.push(producto3);
+                        precioFinal +=producto3.precio;
                         productoValido=true;
-                        console.log(`Agregaste ${nombreProducto} al carrito. Precio U$S ${precio}`)
+                        alert(`Agregaste ${producto3.nombre} al carrito. Precio U$S ${producto3.precio}`);
+                        /*console.log(`Agregaste ${producto3.nombre} al carrito. Precio U$S ${producto3.precio}`)*/
                         break;
                     case "4":
-                        nombreProducto="Smartwatch";
-                        precio=200;
-                        precioFinal +=precio;
+                        const producto4=new Producto("Smartwatch", 200)
+                        carrito.push(producto4);
+                        precioFinal +=producto4.precio;
                         productoValido=true;
-                        console.log(`Agregaste ${nombreProducto} al carrito. Precio U$S ${precio}`)
+                        alert(`Agregaste ${producto4.nombre} al carrito. Precio U$S ${producto4.precio}`);
+                        /*console.log(`Agregaste ${producto4.nombre} al carrito. Precio U$S ${producto4.precio}`)*/
                         break;
                     case "5":
-                        nombreProducto="Samsung Galaxy S24";
-                        precio=1100;
-                        precioFinal +=precio;
+                        const producto5=new Producto("Samsung Galaxy S24", 1100)
+                        carrito.push(producto5);
+                        precioFinal +=producto5.precio;
                         productoValido=true;
-                        console.log(`Agregaste ${nombreProducto} al carrito. Precio U$S ${precio}`)
+                        alert(`Agregaste ${producto5.nombre} al carrito. Precio U$S ${producto5.precio}`);
+                        /*console.log(`Agregaste ${producto5.nombre} al carrito. Precio U$S ${producto5.precio}`)*/
                         break;
                     case "6":
                         seguirComprando=false;
                         productoValido=false;
                         break;
                     default:
-                        console.log("Producto Inválido");
+                        alert("Producto Inválido");
+                        /*console.log("Producto Inválido");*/
                         productoValido=false;
             }
             do {
@@ -77,13 +90,14 @@ function elegirProducto(){
                                 opcionValida=true;
                                 break;
                             default:
-                                console.log("Opción Inválida");
+                                alert("Opción Inválida");
+                                /*console.log("Opción Inválida");*/
                                 opcionValida=false;
                     }
                 }
             }while (!opcionValida);
     }while (seguirComprando);
-    return producto;
+    return opcion;
 }
 
 function elegirPlanPago(){
@@ -97,37 +111,50 @@ function elegirPlanPago(){
                 case "1":
                     cantCuotas="Contado";
                     opcionValida=true;
-                    console.log(`Elegiste pagar ${cantCuotas}. Precio final U$S ${precioFinal}`);
+                    alert(`Elegiste pagar ${cantCuotas}. Precio final U$S ${precioFinal}`);
+                    /*console.log(`Elegiste pagar ${cantCuotas}. Precio final U$S ${precioFinal}`);*/
                     break;
                 case "2": 
                     cantCuotas="en 3 cuotas";
                     precioFinal *=1.05;
                     opcionValida=true;
-                    console.log(`Precio final U$S ${precioFinal.toFixed(2)} ${cantCuotas} de U$S ${(precioFinal/3).toFixed(2)}`);
+                    alert(`Precio final U$S ${precioFinal.toFixed(2)} ${cantCuotas} de U$S ${(precioFinal/3).toFixed(2)}`);
+                    /*console.log(`Precio final U$S ${precioFinal.toFixed(2)} ${cantCuotas} de U$S ${(precioFinal/3).toFixed(2)}`);*/
                     break;
                 case "3": 
                     cantCuotas="en 6 cuotas";
                     precioFinal *=1.1;
                     opcionValida=true;
-                    console.log(`Precio final U$S ${precioFinal.toFixed(2)} ${cantCuotas} de U$S ${(precioFinal/6).toFixed(2)}`);
+                    alert(`Precio final U$S ${precioFinal.toFixed(2)} ${cantCuotas} de U$S ${(precioFinal/6).toFixed(2)}`);
+                    /*console.log(`Precio final U$S ${precioFinal.toFixed(2)} ${cantCuotas} de U$S ${(precioFinal/6).toFixed(2)}`);*/
                     break;
                 case "4":  
                     cantCuotas="en 12 cuotas";
                     precioFinal *=1.15;
                     opcionValida=true;
-                    console.log(`Precio final U$S ${precioFinal.toFixed(2)} ${cantCuotas} de U$S ${(precioFinal/12).toFixed(2)}`);
+                    alert(`Precio final U$S ${precioFinal.toFixed(2)} ${cantCuotas} de U$S ${(precioFinal/12).toFixed(2)}`);
+                    /*console.log(`Precio final U$S ${precioFinal.toFixed(2)} ${cantCuotas} de U$S ${(precioFinal/12).toFixed(2)}`);*/
                     break;
                 default:
-                    console.log("Opción Inválida");
+                    alert("Opción Inválida");
+                    /*console.log("Opción Inválida");*/
                     opcionValida=false;
             }
     }while (!opcionValida)    
 }
 
+
 compra=elegirProducto();
 
 if (compra!="6"){
-    elegirPlanPago();
+    elegirPlanPago();  
+    console.log("El resumen de tu compra es:");
+    
+    for (let i=0; i<carrito.length; i++){
+        console.log( carrito[i].nombre, ": U$S" , carrito[i].precio);
+    }  
 }else{
-    console.log("Compra cancelada")
+    alert("Compra cancelada");
+    /*console.log("Compra cancelada");*/
 }
+
