@@ -1,7 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
+
 body{
 
     background-color: rgb(69, 33, 116);
-    font-family: "Roboto", sans-serif;
+    font-family: "Outfit", system-ui;
 }
 
 main{
@@ -21,6 +26,77 @@ h1{
     padding: 15px;
     margin-top: 40px;
     margin-bottom: 40px;
+    transition: 1s;
+}
+
+h1:hover{
+    transform: scale(1.5);
+    -webkit-box-shadow: -2px 7px 14px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 7px 14px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: -2px 7px 14px 0px rgba(0, 0, 0, 0.75);
+}
+.catalogo{
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 440px ;
+    gap: 15px;
+}
+
+.catalogo-item img{
+    width: 80%;
+    height: auto;
+}
+
+.catalogo-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid yellow;
+    background-color: white;
+    transition: 2s;
+}
+
+.catalogo-item:hover {
+    transform: scale(1.05);
+    -webkit-box-shadow: -2px 7px 14px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 7px 14px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: -2px 7px 14px 0px rgba(0, 0, 0, 0.75); }
+
+.catalogo-item h2{
+    font-size: 18px;
+    margin: 20px;
+    color: rgb(69, 33, 116);
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.catalogo-item p{
+    font-size: 16px;
+    color: rgb(52, 26, 85) ;
+    background-color: yellow;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+
+.boton{
+    border-color: yellow;
+    color: yellow;
+    background-color:rgb(52, 26, 85) ;
+    border-radius: 10px;
+    border: 2px solid yellow;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.boton:hover{
+    background-color: aqua;
+    color: rgb(69, 33, 116);
+    border-color: aqua;
 }
 
 .navbar{
