@@ -8,24 +8,15 @@ let seguirComprandoString;
 let recargo;
 let precioFinal;
 
-class Producto {
-    constructor(nombre, precio, cantidad, categoria) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.cantidad = cantidad;
-        this.categoria = categoria;
-    }
-}
-
-const producto1 = new Producto("Iphone 15 Pro", 1200, 0, "Iphone");
-const producto2 = new Producto("Iphone 15", 1000, 0, "Iphone");
-const producto3 = new Producto("Iphone 14", 800, 0, "Iphone");
-const producto4 = new Producto("Smartwatch", 200, 0, "Smartwatch");
-const producto5 = new Producto("Samsung Galaxy S24", 1100, 0, "Samsung");
-
-let catalogo = [producto1 , producto2 , producto3 , producto4 , producto5];
-let carrito = [];
 let usuarios = ["María García", "Pedro Rodriguez", "José Perez"];
+
+
+<div class="catalogo-item item1">
+                <img src="./img/apple-iphone15-pro.jpg" alt="">
+                <h2>Iphone 15 Pro</h2>
+                <p>llevalo en 12 cuotas de U$S115 </p>
+                <a href="" class="boton">Agregar al carrito</a>
+</div>
 
 
 //*FUNCION SE FIJA SI EL USUARIO SE ENCUENTRA EN EL ARRAY DE USUARIOS Y SINO LO AGREGA
