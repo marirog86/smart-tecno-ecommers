@@ -1,5 +1,12 @@
-const seccionProductos=document.querySelector(".catalogo");
+const seccionProductos=document.querySelector(".catalogo-principal");
 const seccionCarrito=document.querySelector(".carrito");
+const seccionSmartphones=document.querySelector(".catalogo-smartphones");
+const seccionWearables=document.querySelector(".catalogo-wearables");
+const botonSmartphones=document.querySelector(".btn-smartphones");
+const botonWearables=document.querySelector(".btn-wearables");
+const botonBorrarFiltro=document.querySelector(".btn-borrar-filtro");
+
+
 
 class Producto {
     constructor(nombre, precio, categoria, id, imagen, cantidad) {
@@ -29,21 +36,58 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 actualizarCarrito();
 
-catalogo.forEach((producto)=>{
-    const divProducto=document.createElement("div");
-    divProducto.className="catalogo-item";
-    divProducto.innerHTML=`
-                <img src=${producto.imagen} alt="">
-                <h2>${producto.nombre}</h2>
-                <p>llevalo en 12 cuotas de U$S${(producto.precio*1.15/12).toFixed(2)}</p>
-                <button class="boton ${producto.id}">Agregar al carrito</button>
-    `;
-    seccionProductos.append(divProducto);
+function mostrarCatalogo(catalogo,seccion){
+    seccionSmartphones.innerHTML = '';
+    seccionWearables.innerHTML = '';
+    seccion.innerHTML='';
+    
+    catalogo.forEach((producto) => {
+        const divProducto = document.createElement("div");
+        divProducto.className = `catalogo-item`;
+        divProducto.innerHTML = `
+                        <img src=${producto.imagen} alt="">
+                        <h2>${producto.nombre}</h2>
+                        <p>llevalo en 12 cuotas de U$S${(producto.precio * 1.15 / 12).toFixed(2)}</p>
+                        <button class="boton ${producto.id}">Agregar al carrito</button>
+            `;
+        seccion.append(divProducto);
+    
+        const botonAgregar = divProducto.querySelector(`.${producto.id}`);
+        botonAgregar.addEventListener("click", () => { agregarAlCarrito(producto) });
+    
+    });
+}
 
-    const botonAgregar=divProducto.querySelector(`.${producto.id}`);
-    botonAgregar.addEventListener("click", () => {agregarAlCarrito(producto)});
+mostrarCatalogo(catalogo,seccionProductos);
 
-});
+
+botonSmartphones.addEventListener("click", () => {filtrarProductos("Smartphone", seccionSmartphones)});
+botonWearables.addEventListener("click", () => {filtrarProductos("Smartwatch", seccionWearables)});
+botonBorrarFiltro.addEventListener("click", () => {borrarFiltro()});
+
+function borrarFiltro(){
+    seccionSmartphones.classList.toggle("ocultar");
+    seccionWearables.classList.toggle("ocultar");
+    seccionProductos.classList.toggle("ocultar");
+}
+
+
+function filtrarProductos(categoria, seccion){
+
+        seccionSmartphones.innerHTML = '';
+        seccionWearables.innerHTML = '';
+        seccion.innerHTML='';
+
+    
+        const catalogoFiltrado = catalogo.filter((producto) => producto.categoria === categoria);
+        mostrarCatalogo(catalogoFiltrado, seccion);
+        
+        seccionSmartphones.classList.toggle("ocultar", categoria !== "Smartphone");
+        seccionWearables.classList.toggle("ocultar", categoria !== "Smartwatch");
+        seccionProductos.classList.toggle("ocultar", true);
+    
+}
+
 
 function actualizarCarrito() {
     seccionCarrito.innerHTML = '<h2>Resumen del carrito</h2>';
@@ -107,3 +151,4 @@ function agregarAlCarrito(producto){
     
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+

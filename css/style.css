@@ -41,6 +41,9 @@ h1:hover{
     -moz-box-shadow: -2px 7px 14px 0px rgba(0, 0, 0, 0.75);
     box-shadow: -2px 7px 14px 0px rgba(0, 0, 0, 0.75);
 }
+
+
+
 .catalogo{
     width: 100%;
     padding: 20px;
@@ -53,6 +56,10 @@ h1:hover{
 .catalogo-item img{
     width: 80%;
     height: auto;
+}
+
+.ocultar{
+    display: none;
 }
 
 .catalogo-item{
@@ -111,6 +118,12 @@ h1:hover{
     align-items: center;
 }
 
+.filtro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .boton{
     border-color: yellow;
     color: yellow;
@@ -119,6 +132,7 @@ h1:hover{
     border: 2px solid yellow;
     text-decoration: none;
     padding: 10px;
+    margin: 5px;
 }
 
 .boton:hover{
