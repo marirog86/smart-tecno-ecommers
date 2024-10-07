@@ -11,7 +11,7 @@ const botonBorrarFiltro = document.querySelector(".btn-borrar-filtro");
 
 let catalogo = [];
 
-fetch("../datos.json")
+fetch("./datos.json")
     .then((respuesta) => respuesta.json())
     .then((datos) => {
         catalogo = datos;
