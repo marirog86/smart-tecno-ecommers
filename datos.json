@@ -1,0 +1,12 @@
+[
+    {"nombre":"Iphone 15 Pro","precio":1200,"categoria":"Smartphone","id":"producto1", "imagen":"./img/apple-iphone15-pro.jpg", "cantidad":0},
+    {"nombre":"Iphone 15","precio":1000,"categoria":"Smartphone","id":"producto2", "imagen":"./img/apple-iphone15.jpg", "cantidad":0},
+    {"nombre":"Iphone 14 Pro","precio":900,"categoria":"Smartphone","id":"producto3", "imagen":"./img/iPhone14-pro.jpg", "cantidad":0},
+    {"nombre":"Iphone 14","precio": 800,"categoria":"Smartphone","id":"producto4", "imagen":"./img/iPhone14.jpg", "cantidad":0},
+    {"nombre":"Samsung Galaxy S24","precio": 1100,"categoria":"Smartphone","id":"producto5", "imagen":"./img/samsung-galaxy-s24.jpg", "cantidad":0},
+    {"nombre":"Smartwatch1","precio": 200,"categoria":"Smartwatch","id":"producto6", "imagen":"./img/samsung-galaxy-fit-3.webp", "cantidad":0},
+    {"nombre":"Smartwatch2","precio": 250,"categoria":"Smartwatch","id":"producto7", "imagen":"./img/reloj-smartwatch-samsung-galaxy-watch-7.webp", "cantidad":0},
+    {"nombre":"Smartwatch3","precio": 150,"categoria":"Smartwatch","id":"producto8", "imagen":"./img/samsung-galaxy-watch-6.webp", "cantidad":0},
+    {"nombre":"Smartwatch4","precio": 300,"categoria":"Smartwatch","id":"producto9", "imagen":"./img/apple-watch-series-9.webp", "cantidad":0},
+    {"nombre":"Smartwatch5","precio": 100,"categoria":"Smartwatch","id":"producto10", "imagen":"./img/apple-watch-ultra.webp", "cantidad":0}
+]
