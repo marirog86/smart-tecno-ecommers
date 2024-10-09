@@ -8,7 +8,6 @@ const botonBorrarFiltro = document.querySelector(".btn-borrar-filtro");
 
 
 
-
 let catalogo = [];
 
 fetch("./datos.json")
@@ -80,7 +79,7 @@ function actualizarCarrito() {
     seccionCarrito.innerHTML = '<h2>Resumen del carrito</h2>';
     if (carrito.length == 0) {
         const parrafoCarrito = document.createElement("p");
-        parrafoCarrito.innerText = `Tu carrito está vacío 😢😢😢`;
+        parrafoCarrito.innerText = `Tu carrito está vacío 😩`;
         seccionCarrito.append(parrafoCarrito);
     } else {
         carrito.forEach((producto) => {
@@ -118,7 +117,22 @@ function borrarProducto(producto) {
     let indice = carrito.indexOf(producto);
     carrito.splice(indice, 1);
     localStorage.removeItem(producto);
-    Swal.fire("El producto se eliminó del carrito");
+    Toastify({
+
+        text: `${producto.nombre} se eliminó del carrito`,
+        duration: 4000,
+        close: true,
+        gravity: "bottom",
+        offset: {
+            x: 30,
+            y: 60 
+        },
+        style: {
+            background: "linear-gradient(90deg, rgba(203,105,123,0.9612045501794468) 0%, rgba(240,138,12,1) 100%)",
+        }
+        
+        }).showToast();
+
     actualizarCarrito();
 }
 
@@ -155,10 +169,25 @@ function agregarAlCarrito(producto) {
         producto.cantidad = 1;
         carrito.push(producto);
     }
-    Swal.fire("El producto se agregó al carrito");
+    
+    Toastify({
+
+    text: `${producto.nombre} se agregó al carrito`,
+    duration: 4000,
+    close: true,
+    gravity: "bottom",
+    offset: {
+        x: 30,
+        y: 60 
+    },
+    style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+    }
+    
+    }).showToast();
+    
     actualizarCarrito();
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
-
 
